@@ -1,4 +1,4 @@
-LumaStoreTest
+##LumaStoreTest
 LumaStoreTest é um projeto de automação de testes para a loja online LumaStore. O objetivo principal deste teste é realizar corretamente o fluxo de compra de um produto na aplicação.
 
 Tecnologias Utilizadas
