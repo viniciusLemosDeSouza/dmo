@@ -54,7 +54,7 @@ private Select selectElement;
 
     public void screenshot() throws IOException {
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        String filePath =  "src/screenshot/screenshot"+cont+".png";
+        String filePath =  "screenshot/screenshot"+cont+".png";
         File destFile = new File(filePath);
         Files.copy(scrFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         cont++;
