@@ -34,53 +34,61 @@ public class stepsDefinitions {
     }
 
     @Given("Usuario acessa aplicacao")
-    public void usuarioAcessaAplicacao() throws InterruptedException {
+    public void usuarioAcessaAplicacao() throws InterruptedException, IOException {
         mG.abreAplicacao();
         mG.validaTelaInicial();
+        mG.screenshot();
     }
 
     @When("Usuario realiza pesquisa")
-    public void usuarioRealizaPesquisa()  {
+    public void usuarioRealizaPesquisa() throws IOException {
         ti.busca();
-
+        mG.screenshot();
     }
+
     @And("Usuario confirma pesquisa")
-    public void usuarioConfirmaPesquisa() throws InterruptedException {
+    public void usuarioConfirmaPesquisa() throws InterruptedException, IOException {
         ti.clicaLupa();
         mG.ValidaTelaBusca();
+        mG.screenshot();
     }
 
     @And("Usuario seleciona o produto")
-    public void usuarioSelecionaProduto(){
+    public void usuarioSelecionaProduto() throws IOException {
         tb.clicaProduto();
+        mG.screenshot();
     }
 
     @And("Usuario seleciona cor e tamanho L")
-    public void usuarioSelecionaCorTamanho(){
+    public void usuarioSelecionaCorTamanho() throws IOException {
        ti.fechaPopUp();
         tp.selcTamanho();
         tp.selecCor();
+        mG.screenshot();
     }
     @And("Usuario adiciona produto ao carrinho")
-    public void usuarioAdicionaProdutoCarrinho(){
+    public void usuarioAdicionaProdutoCarrinho() throws IOException {
         tp.adicionaCarrinho();
+        mG.screenshot();
     }
 
     @And("Usuario realiza checkout")
-    public void usuarioRealizacheckout() throws InterruptedException {
+    public void usuarioRealizacheckout() throws InterruptedException, IOException {
         tp.realizaCheckout();
+        mG.screenshot();
     }
     @And("Usuario informa dados")
-    public void usuarioInformaDados() throws InterruptedException {
+    public void usuarioInformaDados() throws InterruptedException, IOException {
         de.informaDadosEntrega();
+        mG.screenshot();
     }
 
     @Then("Usuario finaliza pagamento")
-    public void usuarioFinalizaPagameto(){
+    public void usuarioFinalizaPagameto() throws IOException {
         pg.confirmaPagamento();
         pg.validaCompraFinalizada();
+        mG.screenshot();
     }
-
 
 
 @After

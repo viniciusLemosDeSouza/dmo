@@ -2,10 +2,15 @@ package metodos_Genericos;
 
 import constantes.Global;
 import org.junit.Assert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 
 public class MetodosGenericos {
@@ -17,6 +22,7 @@ private Select selectElement;
 
     }
 
+    int cont = 0;
 
     public void abreAplicacao(){
         driver.get(Global.APP.getS());
@@ -44,6 +50,14 @@ private Select selectElement;
             System.out.println("Tela de busca não carregada corretamente");
         }
         Assert.assertTrue(tb);
+    }
+
+    public void screenshot() throws IOException {
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        String filePath =  "src/screenshot/screenshot"+cont+".png";
+        File destFile = new File(filePath);
+        Files.copy(scrFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        cont++;
     }
 
 

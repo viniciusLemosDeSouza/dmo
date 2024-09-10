@@ -1,6 +1,6 @@
 Feature: Search Shirt Test
   @ExecuteTest @searchShirt
-    Scenario Outline: Search shirt teste
+    Scenario: Search shirt teste
     Given Usuario acessa aplicacao
     When Usuario realiza pesquisa
     And Usuario confirma pesquisa
